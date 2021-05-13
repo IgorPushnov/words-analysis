@@ -1,11 +1,11 @@
 const fs = require('fs');
 
-const array = fs.readFileSync('dog.css').toString().split(" ");
+const array = fs.readFileSync('util.js').toString().split(" ");
 // for (i in array) {
 //   console.log(array[i]);
 // }
 
-const textExample = array.join(" ");
+const textExample = array.join(" ").replace(/\<+.+?(?=\>)|\>|\/|\W|\s/g, " ").replace(/\s+/g, " ");
 
 function calculateWordsStatistic(text) {
   function parseWords(str) {
@@ -21,4 +21,4 @@ function calculateWordsStatistic(text) {
 }
 
 console.log(textExample);
-// console.log(calculateWordsStatistic(textExample));
+console.log(calculateWordsStatistic(textExample));
