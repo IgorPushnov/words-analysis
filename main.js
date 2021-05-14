@@ -1,15 +1,15 @@
 const fs = require('fs');
 
-const array = fs.readFileSync('util.js').toString().split(" ");
+const array = fs.readFileSync('testData/util.js').toString().split(" ");
 // for (i in array) {
 //   console.log(array[i]);
 // }
 
-const textExample = array.join(" ").replace(/\<+.+?(?=\>)|\>|\/|\W|\s/g, " ").replace(/\s+/g, " ");
+const textExample = array.join(" ");
 
 function calculateWordsStatistic(text) {
   function parseWords(str) {
-    return str.split(" ");
+    return str.replace(/\<+.+?(?=\>)|\>|\/|\W|\s/g, " ").replace(/\s+/g, " ").split(" ");
   }
 
   function collectStatistic(array) {
@@ -21,4 +21,4 @@ function calculateWordsStatistic(text) {
 }
 
 console.log(textExample);
-console.log(calculateWordsStatistic(textExample));
+// console.log(calculateWordsStatistic(textExample));
