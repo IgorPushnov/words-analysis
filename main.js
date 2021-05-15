@@ -4,7 +4,7 @@ const textExample = fs.readFileSync('testData/dog.css').toString();
 
 function calculateWordsStatistic(text) {
   function parseWords(str) {
-    return str.split(" ").join(" ").replace(/\<+.+?(?=\>)|\>|\/|\W|\s/g, " ").replace(/\s+/g, " ").split(" ");
+    return str.replace(/\<+.+?(?=\>)|\>|\/|\W|\s/g, " ").replace(/\s+/g, " ").split(" ");
   }
 
   function collectStatistic(array) {
