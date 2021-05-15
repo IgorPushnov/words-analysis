@@ -1,11 +1,6 @@
 const fs = require('fs');
 
-const array = fs.readFileSync('testData/util.js').toString().split(" ");
-// for (i in array) {
-//   console.log(array[i]);
-// }
-
-const textExample = array.join(" ");
+const textExample = fs.readFileSync('testData/dog.css').toString();
 
 function calculateWordsStatistic(text) {
   function parseWords(str) {
@@ -20,5 +15,5 @@ function calculateWordsStatistic(text) {
   return collectStatistic(parseWords(text));
 }
 
-console.log(textExample);
-// console.log(calculateWordsStatistic(textExample));
+// console.log(textExample);
+console.log(calculateWordsStatistic(textExample));
