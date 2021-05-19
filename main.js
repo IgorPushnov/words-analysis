@@ -1,9 +1,18 @@
 const fs = require('fs');
+const path = require('path');
 
-const textExample1 = fs.readFileSync('testData/cat.html', 'utf-8');
-const textExample2 = fs.readFileSync('testData/dog.css', 'utf-8');
-const textExample3 = fs.readFileSync('testData/world.txt', 'utf-8');
-const textsForAnalysis = new Array(textExample1, textExample2, textExample3);
+const folderPath = 'testData';
+const pathFiles = fs.readdirSync(folderPath).map(fileName => path.join(folderPath, fileName));
+const textsForAnalysis = pathFiles.map(pathToFile => fs.readFileSync(pathToFile, 'utf-8'));
+
+function readFiles(folder) {
+  folder.forEach(function (arrayElement) {
+    const textExample = fs.readFileSync(arrayElement, 'utf-8');
+    textsForAnalysis.push(textExample);
+    return textsForAnalysis;
+  });
+}
+
 
 function calculateWordsStatistic(objectForAnalysis) {
   function parseWords(str) {
@@ -17,7 +26,7 @@ function calculateWordsStatistic(objectForAnalysis) {
   }
   return collectStatistic(parseWords(objectForAnalysis.toString()));
 }
-
+readFiles(pathFiles);
 // console.log(textExample1);
 // console.log(textExample2);
 // console.log(textExample3);
