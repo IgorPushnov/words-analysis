@@ -1,10 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-
-function readFiles(folderPath) {
-  const pathFiles = fs.readdirSync(folderPath).map(fileName => path.join(folderPath, fileName));
-  return pathFiles.map(pathToFile => fs.readFileSync(pathToFile, 'utf-8'));
-}
+const readWorld = require('./readfiles.js');
 
 function calculateWordsStatistic(objectForAnalysis) {
   function parseWords(str) {
@@ -19,5 +13,5 @@ function calculateWordsStatistic(objectForAnalysis) {
   return collectStatistic(parseWords(objectForAnalysis.toString()));
 }
 
-console.log(calculateWordsStatistic(readFiles('testData')));
+console.log(calculateWordsStatistic(readWorld('testData')));
 
