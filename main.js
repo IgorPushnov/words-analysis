@@ -1,17 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const folderPath = 'testData';
-const pathFiles = fs.readdirSync(folderPath).map(fileName => path.join(folderPath, fileName));
-const textsForAnalysis = pathFiles.map(pathToFile => fs.readFileSync(pathToFile, 'utf-8'));
-
-// function readFiles(folder) {
-//   folder.forEach(function (arrayElement) {
-//     const textExample = fs.readFileSync(arrayElement, 'utf-8');
-//     textsForAnalysis.push(textExample);
-//     return textsForAnalysis;
-//   });
-// }
+function readFiles(folderPath) {
+  const pathFiles = fs.readdirSync(folderPath).map(fileName => path.join(folderPath, fileName));
+  return pathFiles.map(pathToFile => fs.readFileSync(pathToFile, 'utf-8'));
+}
 
 function calculateWordsStatistic(objectForAnalysis) {
   function parseWords(str) {
@@ -26,4 +19,5 @@ function calculateWordsStatistic(objectForAnalysis) {
   return collectStatistic(parseWords(objectForAnalysis.toString()));
 }
 
-console.log(calculateWordsStatistic(textsForAnalysis));
+console.log(calculateWordsStatistic(readFiles('testData')));
+
