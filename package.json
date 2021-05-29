@@ -1,0 +1,23 @@
+{
+  "name": "words-analysis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "jest": "^27.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorPushnov/words-analysis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgorPushnov/words-analysis/issues"
+  },
+  "homepage": "https://github.com/IgorPushnov/words-analysis#readme"
+}
