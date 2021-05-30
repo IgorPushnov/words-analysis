@@ -1,6 +1,6 @@
 function calculateWordsStatistic(objectForAnalysis) {
   function parseWords(str) {
-    return str.replace(/\<+.+?(?=\>)|\>|\/|\W|\s|\L/g, " ").toLowerCase().replace(/\s+/g, " ").split(" ");
+    return str.replace(/\<+.+?(?=\>)|\>|\/|\W|\s/g, " ").toLowerCase().replace(/\s+/g, " ").split(" ");
   }
 
   function collectStatistic(array) {
