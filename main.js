@@ -1,5 +1,5 @@
-const readWorld = require('./readfiles.js');
+const readWords = require('./readfiles.js');
 const calculateWordsStatistic = require('./analysis.js');
 
-console.log(calculateWordsStatistic(readWorld('testData')));
+console.log(calculateWordsStatistic(readWords('testData')));
 
