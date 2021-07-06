@@ -1,10 +1,10 @@
 function calculateWordsStatistic(objectForAnalysis) {
   function parseWords(str) {
-    return str.replace(/\<+.+?(?=\>)|\>|\/|\W|\s/g, " ").replace(/\s+/g, " ").split(" ");
+    return str.replace(/([A-Z])/g, " $1").replace(/\<+.+?(?=\>)|\>|\/|[^a-zA-Z ]|\s+/g, " ").toLowerCase().split(" ");
   }
 
   function collectStatistic(array) {
-    var statistic = {};
+    const statistic = {};
     array.forEach(function (x) { statistic[x] = (statistic[x] || 0) + 1; });
     return statistic;
   }
@@ -12,3 +12,4 @@ function calculateWordsStatistic(objectForAnalysis) {
 }
 
 module.exports = calculateWordsStatistic;
+
