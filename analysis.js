@@ -1,6 +1,6 @@
 function calculateWordsStatistic(objectForAnalysis) {
   function parseWords(str) {
-    return str.replace(/([A-Z]a-z)/g, " $1").replace(/[^a-zA-Zа-яА-Я]/g, " ").replace(/\s+[a-zA-Z]\s+/g, " ").toLowerCase().split(' ');
+    return str.replace(/([A-Z]a-z)/g, " $1").replace(/[^a-zA-Zа-яА-Я]/g, " ").replace(/\s+[a-zA-Z]\s+/g, " ").toLowerCase().replace(/\s+/g, " ").split(' ');
   }
 
   function collectStatistic(array) {
